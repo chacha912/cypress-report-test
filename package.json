@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test:unit": "jest",
     "test:chrome": "cypress run --browser chrome",
     "report:merge": "mochawesome-merge cypress/results/json/*.json > index.json",
     "report:generate": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
@@ -13,9 +14,16 @@
   "devDependencies": {
     "cypress": "^9.0.0",
     "cypress-multi-reporters": "^1.5.0",
+    "jest": "^27.3.1",
     "mocha": "^9.1.3",
     "mochawesome": "^7.0.1",
     "mochawesome-merge": "^4.2.0",
     "mochawesome-report-generator": "^6.0.1"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/cypress/"
+    ]
   }
 }

@@ -2,7 +2,7 @@ name: slack-action
 
 on:
   push:
-    branches: [ jest-test ]
+    branches: [ master ]
 
 jobs:
   build:

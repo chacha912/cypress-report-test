@@ -2,7 +2,8 @@ name: Create Cypress report
 on:
   push:
     branches:
-      -  [ master, jest-test ]
+      - main
+      - jest-test
 
 jobs:
 

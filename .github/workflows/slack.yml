@@ -1,0 +1,24 @@
+name: slack
+
+on:
+  push:
+    branches: [ jest-test ]
+  pull_request:
+    branches: [ jest-test ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+
+    steps:
+    - name: Notify slack
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      uses: pullreminders/slack-action@master
+      with:
+        args: '{\"channel\":\"C02NFUNBP5Y\",\"text\":\"Hello world\"}'

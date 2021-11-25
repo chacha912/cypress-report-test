@@ -49,49 +49,7 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: custom
-          fields: workflow,job,commit,repo,ref,author,took
-          custom_payload: |
-            {
-              blocks:
-              [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": ":mega: Cypress test fail"
-                  }
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Type:*\nPaid Time Off"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Created by:*\n<example.com|Fred Enriquez>"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*When:*\nAug 10 - Aug 13"
-                    }
-                  ]
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "<https://example.com|View request>"
-                  }
-                }
-              ]
-            }
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
         if: steps.e2eTest.outcome == 'failure'

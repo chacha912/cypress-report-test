@@ -59,7 +59,7 @@ jobs:
                     "type": "header",
                     "text": {
                       "type": "plain_text",
-                      "text": "${{ github.workflow }}""
+                      "text": "${{ github.workflow }}"
                     }
                   },
                   {

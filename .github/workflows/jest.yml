@@ -1,8 +1,6 @@
 name: unit-test
 
 on:
-  push:
-    branches: [ jest-test ]
   pull_request:
     branches: [ jest-test ]
 

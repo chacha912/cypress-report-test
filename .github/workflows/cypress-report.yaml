@@ -54,11 +54,15 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `WORKFLOW: ${process.env.AS_WORKFLOW}\n\n 
-                JOB:${process.env.AS_JOB} 
-                commit: ${process.env.AS_COMMIT}) 
-                repo: ${process.env.AS_REPO}@${process.env.AS_REF} by ${process.env.AS_AUTHOR} 
-                time: ${{ job.status }} in ${process.env.AS_TOOK}`,
+                text: `$GITHUB_WORKFLOW
+                  ${{ github.workflow }}
+                  repo: $GITHUB_REPOSITORY
+                  test-----
+                  output - ${{ steps.e2eTest.outputs }}
+                  outcome - ${{ steps.e2eTest.outcome }}
+                  conclusion - ${{ steps.e2eTest.conclusion }}
+                  ${process.env.AS_REF} by ${process.env.AS_AUTHOR}
+                `
               }]
             }
         env:

@@ -53,7 +53,7 @@ jobs:
           custom_payload: |
             {
               attachments: [{
-                color: danger,
+                color: "danger",
                 blocks:
                 [
                   {

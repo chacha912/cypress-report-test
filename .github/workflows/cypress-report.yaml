@@ -57,18 +57,40 @@ jobs:
                 blocks:
                 [
                   {
+                    "type": "header",
+                    "text": {
+                      "type": "plain_text",
+                      "text": ":mega: Cypress test fail"
+                    }
+                  },
+                  {
                     "type": "section",
                     "fields": [
                       {
                         "type": "mrkdwn",
-                        "text":
-                          ":large_green_circle: *Passed:* 3\n\n\n:large_yellow_circle: *Skipped:* 1\n\n\n:white_circle: *Failed*: 0"
+                        "text": "*Type:*\nPaid Time Off"
                       },
                       {
                         "type": "mrkdwn",
-                        "text": "*Branch:*\n브랜치명\n\n*Commit:*\n커밋명"
+                        "text": "*Created by:*\n<example.com|Fred Enriquez>"
                       }
                     ]
+                  },
+                  {
+                    "type": "section",
+                    "fields": [
+                      {
+                        "type": "mrkdwn",
+                        "text": "*When:*\nAug 10 - Aug 13"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "<https://example.com|View request>"
+                    }
                   }
                 ]
               }]

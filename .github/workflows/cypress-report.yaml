@@ -51,27 +51,28 @@ jobs:
           status: custom
           fields: workflow,job,commit,repo,ref,author,took
           custom_payload: |
-            attachments:
-            - color: danger
-              blocks:
-              - type: section
-                fields:
-                - type: mrkdwn
-                  text: |-
-                    :large_green_circle: *Passed:* 3
-
-
-                    :large_yellow_circle: *Skipped:* 1
-
-
-                    :white_circle: *Failed*: 0
-                - type: mrkdwn
-                  text: |-
-                    *Branch:*
-                    브랜치명
-
-                    *Commit:*
-                    커밋명
+            {
+              attachments: [{
+                color: danger,
+                blocks:
+                [
+                  {
+                    "type": "section",
+                    "fields": [
+                      {
+                        "type": "mrkdwn",
+                        "text":
+                          ":large_green_circle: *Passed:* 3\n\n\n:large_yellow_circle: *Skipped:* 1\n\n\n:white_circle: *Failed*: 0"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "*Branch:*\n브랜치명\n\n*Commit:*\n커밋명"
+                      }
+                    ]
+                  }
+                ]
+              }]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
         if: steps.e2eTest.outcome == 'failure'

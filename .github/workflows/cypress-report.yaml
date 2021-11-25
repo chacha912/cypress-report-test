@@ -54,15 +54,29 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `$GITHUB_WORKFLOW
-                  ${{ github.workflow }}
-                  repo: $GITHUB_REPOSITORY
-                  test-----
-                  output - ${{ steps.e2eTest.outputs }}
-                  outcome - ${{ steps.e2eTest.outcome }}
-                  conclusion - ${{ steps.e2eTest.conclusion }}
-                  ${process.env.AS_REF} by ${process.env.AS_AUTHOR}
-                `
+                blocks: [
+                  {
+                    "type": "header",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "${{ github.workflow }}""
+                    }
+                  },
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "result - ${{ steps.e2eTest.outcome }}"
+                    }
+                  },
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "${process.env.AS_REF} by ${process.env.AS_AUTHOR}"
+                    }
+                  }
+                ]
               }]
             }
         env:

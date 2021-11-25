@@ -10,7 +10,7 @@ describe('Google fail search', () => {
       .type('{enter}');
   });
 
-  it('Expect more than 1000 results', () => {
-    cy.get('[id="result-stats"]').contains('100 results');
-  });
+  // it('Expect more than 1000 results', () => {
+  //   cy.get('[id="result-stats"]').contains('100 results');
+  // });
 });

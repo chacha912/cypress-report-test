@@ -73,7 +73,7 @@ jobs:
                     "type": "section",
                     "text": {
                       "type": "plain_text",
-                      "text": "${process.env.AS_REF} by ${process.env.AS_AUTHOR}"
+                      "text": `${process.env.AS_REF} by ${process.env.AS_AUTHOR}`
                     }
                   }
                 ]
